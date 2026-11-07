@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sangam G Sajjan - SDET Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f172a;
+      --secondary: #334155;
+      --accent: #2563eb;
+      --accent-dark: #1d4ed8;
+      --border: #e2e8f0;
+      --bg: #ffffff;
+      --surface: #f8fafc;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--secondary);
+      background-color: #f1f5f9;
+      line-height: 1.35;
+      font-size: 11.5px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .resume-container {
+      max-width: 820px;
+      margin: 20px auto;
+      background: var(--bg);
+      padding: 30px 36px;
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.08);
+      border-radius: 6px;
+    }
+
+    /* Print Controls */
+    .action-bar {
+      max-width: 820px;
+      margin: 16px auto 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 18px;
+      background: #1e293b;
+      color: #f8fafc;
+      border-radius: 6px;
+    }
+
+    .action-bar span {
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .btn-print {
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 5px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.15s ease;
+    }
+
+    .btn-print:hover {
+      background: #1d4ed8;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--primary);
+      margin-bottom: 11px;
+    }
+
+    h1 {
+      font-size: 21px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+      text-transform: uppercase;
+    }
+
+    .target-title {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.3px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 6px 12px;
+      font-size: 11px;
+      color: var(--secondary);
+    }
+
+    .contact-info a {
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.15s ease;
+    }
+
+    .contact-info a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .contact-separator {
+      color: #cbd5e1;
+    }
+
+    /* Section Styling */
+    section {
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Professional Summary */
+    .summary-text {
+      text-align: justify;
+      color: var(--secondary);
+      font-size: 11px;
+      line-height: 1.38;
+    }
+
+    .summary-text strong {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Skills Grid */
+    .skills-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+    }
+
+    .skills-table tr {
+      border-bottom: 1px solid #f8fafc;
+    }
+
+    .skills-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .skills-table td {
+      padding: 2.5px 0;
+      vertical-align: top;
+    }
+
+    .skill-cat {
+      font-weight: 600;
+      color: var(--primary);
+      width: 195px;
+      white-space: nowrap;
+    }
+
+    .skill-desc {
+      color: var(--secondary);
+    }
+
+    /* Experience */
+    .exp-item {
+      margin-bottom: 6px;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1px;
+    }
+
+    .exp-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .exp-company {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .exp-date {
+      font-size: 11px;
+      font-weight: 500;
+      color: #64748b;
+    }
+
+    .exp-subtitle {
+      font-size: 10.5px;
+      font-style: italic;
+      color: #64748b;
+      margin-bottom: 4px;
+    }
+
+    ul.bullet-list {
+      list-style-type: disc;
+      padding-left: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 3.5px;
+    }
+
+    ul.bullet-list li {
+      font-size: 11px;
+      line-height: 1.34;
+      color: var(--secondary);
+      text-align: justify;
+    }
+
+    ul.bullet-list li strong {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Projects */
+    .project-item {
+      margin-bottom: 8px;
+    }
+
+    .project-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1px;
+    }
+
+    .project-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .project-links a {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      margin-left: 6px;
+    }
+
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    .project-tech {
+      font-size: 10.5px;
+      font-weight: 500;
+      color: #64748b;
+      margin-bottom: 3px;
+    }
+
+    /* Education */
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .edu-degree {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .edu-school {
+      font-size: 11px;
+      color: var(--secondary);
+    }
+
+    .edu-date {
+      font-size: 11px;
+      font-weight: 500;
+      color: #64748b;
+    }
+
+    /* Print Media - Guaranteed Exact Single Page */
+    @media print {
+      body {
+        background: #ffffff;
+        font-size: 10.5pt;
+        color: #0f172a;
+        margin: 0;
+        padding: 0;
+      }
+
+      .action-bar {
+        display: none !important;
+      }
+
+      .resume-container {
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+      }
+
+      @page {
+        margin: 8mm 11mm;
+        size: A4 portrait;
+      }
+
+      section {
+        page-break-inside: avoid;
+      }
+
+      a {
+        text-decoration: none !important;
+        color: inherit !important;
+      }
+
+      .project-links a {
+        color: #2563eb !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="action-bar">
+    <span>Cockpit Artifact: <strong>portfolio/resume_sdet_20lpa_remote.html</strong> (Single-Page Optimized)</span>
+    <button class="btn-print" onclick="window.print()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+      Print to PDF / Save as PDF
+    </button>
+  </div>
+
+  <main class="resume-container">
+    <!-- Header -->
+    <header>
+      <h1>Sangam G Sajjan</h1>
+      <div class="target-title">Software Development Engineer in Test (SDET) | Python • Distributed Systems • TestOps</div>
+      <div class="contact-info">
+        <span>Bengaluru, India <em>(Open to Remote: US / EU / APAC)</em></span>
+        <span class="contact-separator">•</span>
+        <span>+91 7483138916</span>
+        <span class="contact-separator">•</span>
+        <a href="mailto:sangamgsajjan0987@gmail.com">sangamgsajjan0987@gmail.com</a>
+        <span class="contact-separator">•</span>
+        <a href="https://github.com/sangam-sajjan" target="_blank">github.com/sangam-sajjan</a>
+        <span class="contact-separator">•</span>
+        <a href="https://linkedin.com/in/sangam-sajjan" target="_blank">linkedin.com/in/sangam-sajjan</a>
+        <span class="contact-separator">•</span>
+        <a href="https://sangam-sajjan.github.io" target="_blank">Portfolio</a>
+      </div>
+    </header>
+
+    <!-- Professional Summary -->
+    <section>
+      <h2 class="section-title">Professional Summary</h2>
+      <p class="summary-text">
+        High-leverage <strong>Software Development Engineer in Test (SDET)</strong> specializing in Python-based test architectures, asynchronous microservices validation, and distributed CI/CD pipeline optimization. Proven track record reducing CI regression turnaround from <strong>3.5 hours to 18 minutes (88% reduction)</strong> via GitHub Actions matrix sharding and hermetic state re-use (<code>storage_state</code>). Built resilient validation engines spanning modern Web UI, asynchronous REST/HTTPX APIs, and relational database reconciliation with strict Pydantic v2 contract enforcement.
+      </p>
+    </section>
+
+    <!-- Technical Skills -->
+    <section>
+      <h2 class="section-title">Technical Skills</h2>
+      <table class="skills-table">
+        <tr>
+          <td class="skill-cat">Languages &amp; Core</td>
+          <td class="skill-desc">Python 3.12+ (Asyncio, OOP, Concurrency, Generics, Type Hints), SQL (PostgreSQL, MySQL), Bash / Shell, JSON, YAML</td>
+        </tr>
+        <tr>
+          <td class="skill-cat">Test Frameworks &amp; Architecture</td>
+          <td class="skill-desc">Pytest, Playwright (Sync/Async), Page Component Model (PCM), Requests, HTTPX, pytest-xdist, pytest-mock, Factory Boy</td>
+        </tr>
+        <tr>
+          <td class="skill-cat">Data &amp; Contract Integrity</td>
+          <td class="skill-desc">Pydantic v2, JSONSchema, Source-to-Target (S2T) Data Reconciliation, Multi-table Joins &amp; Window Functions, Redis, RabbitMQ</td>
+        </tr>
+        <tr>
+          <td class="skill-cat">DevOps, Cloud &amp; Observability</td>
+          <td class="skill-desc">Docker, Docker Compose, GitHub Actions (Matrix Sharding, Caching), Linux CLI, Allure Telemetry, Playwright Tracing (<code>trace.zip</code>), Ruff, Mypy</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- Professional Experience -->
+    <section>
+      <h2 class="section-title">Professional Experience</h2>
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <span class="exp-title">SDET / QA Automation Engineer</span>
+            <span class="exp-company">| Core Engineering Platform</span>
+          </div>
+          <span class="exp-date">Sep 2024 – Present | Bengaluru, India (Remote)</span>
+        </div>
+        <div class="exp-subtitle">Microservices API Reliability, Web UI Automation, Database Reconciliation &amp; Distributed CI/CD</div>
+        <ul class="bullet-list">
+          <li><strong>CI/CD Sharding &amp; Pipeline Acceleration:</strong> Architected a distributed regression engine across 400+ microservice and UI test suites using <strong>Pytest, Playwright, and GitHub Actions matrix sharding</strong>, compressing regression turnaround from <strong>3.5 hours to 18 minutes (88% reduction)</strong> while maintaining a <strong>&lt;1.5% flakiness SLA</strong>.</li>
+          <li><strong>Hermetic State Reuse &amp; UI Speedup:</strong> Spearheaded end-to-end automation of critical web workflows in <strong>Playwright Python</strong> using user-facing locators and <code>browser_context.storage_state()</code>, eliminating redundant authentication handshakes across 100+ flows and reducing test execution overhead by <strong>65%</strong>.</li>
+          <li><strong>Microservices Contract Enforcement:</strong> Designed an asynchronous API testing framework leveraging <strong>HTTPX and Pydantic v2</strong> to validate strict schema boundaries, dynamic OAuth2/JWT token lifecycles, and rate-limiting across <strong>50+ microservices endpoints</strong>, catching breaking payload mutations prior to deployment.</li>
+          <li><strong>Deterministic Mocking &amp; Quality Gates:</strong> Eliminated third-party flakiness by implementing <strong>Playwright route interception and HAR replay mocking</strong>, achieving deterministic execution for simulated 5xx outages and latency spikes; integrated strict CI quality gates via <strong>Ruff linting, Mypy strict mode, and Allure telemetry</strong>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Selected Engineering Projects -->
+    <section>
+      <h2 class="section-title">Selected Engineering Projects</h2>
+
+      <!-- Project 1 -->
+      <div class="project-item">
+        <div class="project-header">
+          <span class="project-title">1. Playwright Python Distributed Test Engine</span>
+          <div class="project-links">
+            <a href="https://github.com/sangam-sajjan/playwright-python-enterprise-engine" target="_blank">[GitHub Repo]</a>
+            <a href="https://sangam-sajjan.github.io/playwright-report" target="_blank">[Live Demo]</a>
+          </div>
+        </div>
+        <div class="project-tech">Python 3.12 • Playwright • Pytest • Pydantic BaseSettings • Allure Telemetry • Docker • GitHub Actions</div>
+        <ul class="bullet-list">
+          <li>Architected a containerized Web UI test platform executing 120+ end-to-end user journeys across Chromium, Firefox, and WebKit using the <strong>Page Component Model (PCM)</strong> to decouple navigation, modal, and data-grid widgets.</li>
+          <li>Implemented hermetic network isolation using Playwright route interception, simulating 5xx outages and edge-case latencies deterministically without staging backend dependencies.</li>
+          <li>Integrated automated trace diagnostics (<code>trace.zip</code>), visual snapshot masking, and parallel sharding via <code>pytest-xdist</code>, compressing suite execution time to <strong>under 4 minutes</strong> in GitHub Actions CI.</li>
+        </ul>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-item">
+        <div class="project-header">
+          <span class="project-title">2. Microservices API &amp; Data Integrity Reconciliation Engine</span>
+          <div class="project-links">
+            <a href="https://github.com/sangam-sajjan/api-reliability-data-validator" target="_blank">[GitHub Repo]</a>
+          </div>
+        </div>
+        <div class="project-tech">Python • Pytest • HTTPX • PostgreSQL • Pydantic v2 • SQLAlchemy • Docker</div>
+        <ul class="bullet-list">
+          <li>Engineered an asynchronous integration testing engine validating end-to-end multi-service transactions across Order, Inventory, and Payment services using <strong>HTTPX and Pytest</strong>.</li>
+          <li>Built automated <strong>Source-to-Target (S2T) database reconciliation</strong> scripts executing multi-table joins and window aggregations, validating data consistency and transactional persistence across 15+ relational tables.</li>
+          <li>Implemented multi-tenant authorization boundary testing and token expiration validation, detecting 25+ schema drifts and boundary vulnerabilities prior to staging release.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <h2 class="section-title">Education</h2>
+      <div class="edu-header">
+        <div>
+          <span class="edu-degree">Bachelor of Engineering (B.E.), Computer Science</span>
+          <span class="edu-school"> — Visvesvaraya Technological University (VTU) | Bengaluru, India</span>
+        </div>
+        <span class="edu-date">Graduated: May 2024</span>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
